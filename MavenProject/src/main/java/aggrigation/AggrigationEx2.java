@@ -4,7 +4,7 @@ public class AggrigationEx2 {
 String city;
 int pin;
 AggrigationEx1 ref; //aggrigation
-public AggrigationEx2(String city,int pin,AggrigationEx1 ref)
+public AggrigationEx2(String city,int pin,AggrigationEx1 ref) //constructor
 {
 	this.city=city;
 	this.pin=pin;

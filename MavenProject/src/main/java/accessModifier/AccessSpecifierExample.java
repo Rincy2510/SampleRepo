@@ -1,19 +1,19 @@
 package accessModifier;
 
 public class AccessSpecifierExample {
-public void display()
+public void display() //most visibility
 {
 	System.out.println("Public Access Modifier");
 }
-private void display1()
+private void display1()  //least visibility,within the class
 {
 	System.out.println("Private Access Modifier");
 }
-protected void display2()
+protected void display2()  //within the package
 {
 	System.out.println("Protected Access Modifier");
 }
-void display3()
+void display3() //within the package
 {
 	System.out.println("Default Access Modifier");
 }

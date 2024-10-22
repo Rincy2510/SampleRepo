@@ -1,7 +1,7 @@
 package finalkeyword;
 
 public class Finalvariable {
-	final String name="Rincy";// 
+	final String name="Rincy";// constant variable
 	public void display()
 	{
 		//name="Reny";

@@ -10,7 +10,7 @@ public class Exception_EX3 {
 	}
 	else
 	{
-		throw new VotingException("Not eligible for voting");
+		throw new VotingException("Not eligible for voting");//custom error
 	}
 }
 }

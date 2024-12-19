@@ -1,5 +1,4 @@
 package aggrigation;
-
 public class AggrigationEx2 {
 String city;
 int pin;
@@ -21,5 +20,4 @@ public void display()
 		AggrigationEx2 obj1=new AggrigationEx2("kollam",691602,obj); //calling by using reference variable
 		obj1.display();
 	}
-
 }

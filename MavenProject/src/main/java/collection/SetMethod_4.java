@@ -23,7 +23,7 @@ public class SetMethod_4 {
 				obj1.add(21);
 				obj1.add(41);
 				System.out.println(obj1);
-				obj.retainAll(obj1);
+				obj.retainAll(obj1);//common elements
 				System.out.println(obj);
 	}
 

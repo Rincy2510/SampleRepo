@@ -3,13 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testClasses.ProductPageTestClass">
+      <class name="testClasses.ManageUsersTestClass">
         <methods>
-          <include name="verifyToCreateANewProduct"/>
+          <include name="beforeclass"/>
           <include name="afterMethod"/>
+          <include name="verifyTheAddedUserIsVisibleInTheAllUserList"/>
+          <include name="createReport"/>
+          <include name="aftersuit"/>
           <include name="beforeMethod"/>
         </methods>
-      </class> <!-- testClasses.ProductPageTestClass -->
+      </class> <!-- testClasses.ManageUsersTestClass -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -7,12 +7,13 @@ import org.testng.annotations.Test;
 import PageClasses.HomePageClass;
 import PageClasses.LoginPageClass;
 import UtilityClasses.ExcelReadClass;
+import retryAnalyser.RetryAnalyserClass;
 
 public class LoginPageTestClass extends BaseClass {
 	LoginPageClass lp;
 	HomePageClass hp;
 	
-  @Test
+  @Test(priority = 1,retryAnalyzer = RetryAnalyserClass.class)
   public void verifySuccessfullLogin() throws IOException {
 	  lp = new LoginPageClass(driver);
 	  hp=lp.login(ExcelReadClass.getStringdata(0, 0),ExcelReadClass.getIntegerdata(0, 1));
@@ -21,7 +22,7 @@ public class LoginPageTestClass extends BaseClass {
 	  Assert.assertTrue(actualresult.contains(ExcelReadClass.getStringdata(4, 0)));
 	  
   }
-  @Test(dataProviderClass = DataProviderTestClass.class,dataProvider="unsuccessfullLogin")
+  @Test(dataProviderClass = DataProviderTestClass.class,dataProvider="unsuccessfullLogin",retryAnalyzer = RetryAnalyserClass.class)
   public void verifyUnSuccessfullLogin(String uname,String passw)
   {	  
 	  lp = new LoginPageClass(driver);
@@ -30,7 +31,7 @@ public class LoginPageTestClass extends BaseClass {
 	  Assert.assertTrue(actualresult.contains("do not match our records."));
   }
   
-  @Test
+  @Test(retryAnalyzer = RetryAnalyserClass.class)
   public void verifyTheRememberMeCheckBoxIsSelectedByDefault()
   {
 	  lp= new LoginPageClass(driver);
@@ -38,7 +39,7 @@ public class LoginPageTestClass extends BaseClass {
 	  Assert.assertFalse(actualresult);  
   }
 
-  @Test
+  @Test(retryAnalyzer = RetryAnalyserClass.class)
   public void verifyResetPasswordPageComingWhileClickingOnForgotPassword()
   
   {

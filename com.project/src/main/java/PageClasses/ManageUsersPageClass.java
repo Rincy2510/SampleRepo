@@ -40,20 +40,13 @@ WebElement searchresult;
 public String manageUserPageOpened() {
 	return gl.getTextOfElement(users);
 }
-public void addNewUserButton() {
-	gl.clickOnElement(addbutton);
-}
 public  void  addDetailsOfNewUser(String name,String mail,String psd,String cnfmpsd) {
+	gl.clickOnElement(addbutton);
 	gl.enterValuesOnElement(firstName, name);
 	gl.enterValuesOnElement(email, mail);
 	gl.enterValuesOnElement(pswd, psd);
 	gl.enterValuesOnElement(confirmPassword, cnfmpsd);
-	gl.clickOnElement(saveButton);
-		
-}
-
-public void clickOnSaveButton() {
-	gl.clickOnElement(saveButton);
+	gl.clickOnElement(saveButton);	
 }
 
 public String searchSavedUser() {

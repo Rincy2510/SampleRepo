@@ -27,7 +27,20 @@ public class ProductPageTestClass extends BaseClass {
 	  lp = new LoginPageClass(driver);
 	  hp=lp.login("admin", "123456");
 	  hp.clickOnEndTour();
-	  pp=hp.addproduct();
+	  pp=hp.producttab();
 	  pp.detailsOfProductAdding();
+	  String actualresult=pp.productaddedconfirmation();
+	  Assert.assertTrue(actualresult.contains("gloves"));
+  }
+  @Test
+  public void verifyToDeleteAddedProduct() {
+	  lp = new LoginPageClass(driver);
+	  hp=lp.login("admin", "123456");
+	  hp.clickOnEndTour();
+	  pp=hp.producttab();
+	  pp.deleteSavedProduct();
+	  String actualresult=pp.confirmingnorecords();
+	  Assert.assertFalse(true);
+	 
   }
 }

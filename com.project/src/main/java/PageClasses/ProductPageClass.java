@@ -19,6 +19,8 @@ public ProductPageClass(WebDriver driver) {
 
 @FindBy(xpath = "//h1[starts-with(text(),'Products')]")
 WebElement productlisting;
+@FindBy(xpath = "//a[contains(@class,'btn-primary')]")
+WebElement addbutton;
 @FindBy(xpath = "//input[contains(@class,'form-')]")
 WebElement productname;
 @FindBy(xpath = "//input[contains(@id,'alert_quantity')]")
@@ -31,8 +33,22 @@ WebElement expiresin;
 WebElement exctax;
 @FindBy(xpath = "(//input[contains(@placeholder,'Exc. tax')])[2]")
 WebElement tax1;
-@FindBy(xpath = "//button[contains(@class,'submit_product_form')]")
+@FindBy(xpath = "//button[@value='submit']")
 WebElement savebutton;
+@FindBy(xpath = "//input[contains(@class,'form-control input-sm')]")
+WebElement search;
+@FindBy(xpath = "//table[contains(@id,'product_table')]/tbody/tr[2]/td[12]")
+WebElement actions;
+//@FindBy(css = ("a.delete-product[href=\"https://qalegend.com/billing/public/products/2195\"]"))
+//WebElement deleteButton;
+//@FindBy(xpath = "//a[@class='delete-product']")
+//WebElement deleteBtn;
+@FindBy(xpath = "//button[text()='OK']")
+WebElement OkayButton;
+@FindBy(xpath="//table[contains(@id,'product_table')]/tbody/tr[2]/td[3]")
+WebElement prodcutdeleted;
+
+
 
 
 public String productpageVisible() {
@@ -41,6 +57,7 @@ public String productpageVisible() {
 }
 public void detailsOfProductAdding() {
 	
+	gl.clickOnElement(addbutton);
 	gl.enterValuesOnElement(productname,"gloves");
 	gl.enterValuesOnElementnum(alertquantity, 2);	
 	gl.enterValuesOnElementnum(expiresin, 12);
@@ -49,7 +66,25 @@ public void detailsOfProductAdding() {
 	gl.scrollToFindAnElement(driver,exctax);
 	gl.enterValuesOnElementnum(exctax, 100);
 	gl.enterValuesOnElementnum(tax1, 200);
-	gl.clickOnElement(savebutton);	
+	gl.clickOnElement(savebutton);
+	
+}
+public String productaddedconfirmation() {
+	return gl.getTextOfElement(search);
+}
+
+public void deleteSavedProduct() {
+	gl.clickOnElement(productlisting);
+	gl.enterValuesOnElement(search,"gloves");
+	gl.clickOnElement(actions);
+	//gl.clickOnElement(deleteButton);
+	gl.clickOnElement(OkayButton);
+	
+}
+public String confirmingnorecords() {
+	gl.elementIsDisplayed(prodcutdeleted);
+	return null;
+	
 }
 	
 }

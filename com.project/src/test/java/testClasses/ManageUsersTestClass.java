@@ -24,24 +24,13 @@ public class ManageUsersTestClass extends BaseClass{
       Assert.assertEquals(actualresult,"All users");
   }    
       @Test
-      public void verifyToAddaNewUser() {
-    	  lp = new LoginPageClass(driver);
-    	  hp=lp.login("admin", "123456");
-    	  hp.clickOnEndTour();
-    	  hp.clickOnUserManagement();
-          mp=hp.clickOnUsers();
-	      mp.addNewUserButton();
-	      mp.addDetailsOfNewUser("Rincy", "RincyBabu@gmail.com", "RinBab", "RinBab");
-	      mp.clickOnSaveButton();
-	  
-  }
-      @Test
       public void verifyTheAddedUserIsVisibleInTheAllUserList() {
     	  lp = new LoginPageClass(driver);
     	  hp=lp.login("admin", "123456");
     	  hp.clickOnEndTour();
     	  hp.clickOnUserManagement();
           mp=hp.clickOnUsers();
+	      mp.addDetailsOfNewUser("Rincy", "RincyBabu@gmail.com", "RinBab", "RinBab");
           String actualresult=mp.searchSavedUser();
           Assert.assertEquals(actualresult, "Rincy");
           
